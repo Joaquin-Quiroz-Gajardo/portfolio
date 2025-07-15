@@ -1,9 +1,13 @@
 import { Chip, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import taxi from '../Imagenes/taxi.png'
 import Proyecto4Tabs from './Proyecto4Tabs'
+import { LanguageContext, SetLanguageContext } from '../App'
 
-const Proyecto4 = () => {
+const Proyecto4 = (props) => {
+    const lang = useContext(LanguageContext)
+    const setLang = useContext(SetLanguageContext)
+    props.lang == "es" ? setLang("es") : console.log("")
   return (
     <>
       <Typography variant='h2' component="h1" p={2}>Predicción de la propinas a taxis en Nueva York</Typography>

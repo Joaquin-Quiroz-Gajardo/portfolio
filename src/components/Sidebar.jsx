@@ -40,7 +40,7 @@ export default function Sidebar() {
     {
       name: "Inicio",
       icono: HomeIcon,
-      path: "/",
+      path: lang == "en"?"/":"/es",
     },
   ]
 
@@ -48,32 +48,32 @@ export default function Sidebar() {
     {
       name: "Active learning",
       icono: SmartToyIcon,
-      path: "/proyect1",
+      path: lang == "en"?"/proyect1":"/es/proyect1",
     },
     {
       name: "Clasificador datos academicos y Web scraping",
       icono: ScreenSearchDesktopIcon,
-      path: "/proyect2",
+      path: lang == "en"?"/proyect2":"/es/proyect2",
     },
     {
       name: "Web scraping Google News",
       icono: NewspaperIcon,
-      path: "/proyect3",
+      path: lang == "en"?"/proyect3":"/es/proyect3",
     },
     {
       name: "Análisis de datos, propinas en Nueva York",
       icono: LocalTaxiIcon,
-      path: "/proyect4",
+      path: lang == "en"?"/proyect4":"/es/proyect4",
     },
     {
       name: "Image recognition apertura de ojo",
       icono: VisibilityIcon,
-      path: "/proyect5",
+      path: lang == "en"?"/proyect5":"/es/proyect5",
     },
     {
       name: "Named entity recognition con datos de X",
       icono: XIcon,
-      path: "/proyect6",
+      path: lang == "en"?"/proyect6":"/es/proyect6",
     },
   ]
 // 
@@ -88,7 +88,10 @@ export default function Sidebar() {
           {/* <Button color='eee'>
             Obscuro
           </Button> */}
-          <Button color='eee' onClick={lang == "en"?()=>setLang("es"):()=>setLang("en")}>
+          <Button color='eee' onClick={lang == "en"?
+             ()=>window.location = "http://" + window.location.host + window.location.pathname.replace("/", "/es/")
+             :
+            ()=>window.location = "http://" + window.location.host + window.location.pathname.replace("/es/", "/")}>
             <div style={{width:"16px", height:"16px"}}><img style={{width:"100%", height:"auto"}} src={lang == "en"?spain:uk}></img></div>
           </Button>
         </Toolbar>

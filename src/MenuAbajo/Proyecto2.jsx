@@ -1,9 +1,13 @@
 import { Chip, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import relaves from '../Imagenes/Relaves.png'
 import Proyecto2Tabs from './Proyecto2Tabs'
+import { LanguageContext, SetLanguageContext } from '../App'
 
-const Proyecto2 = () => {
+const Proyecto2 = (props) => {
+    const lang = useContext(LanguageContext)
+    const setLang = useContext(SetLanguageContext)
+    props.lang == "es" ? setLang("es") : console.log("")
   return (
     <>
       <Typography variant='h2' component="h1" p={2}>Clasificador de datos académicos y web scraping</Typography>

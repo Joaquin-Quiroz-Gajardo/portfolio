@@ -1,11 +1,15 @@
 import { Chip, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import XEjemplo from '../Imagenes/XEjemplo.png'
 import XEntregaDerechosPorRegion from '../Imagenes/XEntregaDerechosPorRegion.png'
 import Proyecto6Limpieza from './Proyecto6Limpieza'
 import XResultadoEntrenamiento from '../Imagenes/XResultadoEntrenamiento.png'
+import { LanguageContext, SetLanguageContext } from '../App'
 
-const Proyecto6 = () => {
+const Proyecto6 = (props) => {
+    const lang = useContext(LanguageContext)
+    const setLang = useContext(SetLanguageContext)
+    props.lang == "es" ? setLang("es") : console.log("")
   return (
     <>
       <Typography variant='h2' component="h1" p={2}>Reconocimiento de ojos por coordenada</Typography>

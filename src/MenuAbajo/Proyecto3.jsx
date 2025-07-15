@@ -1,12 +1,16 @@
 import { Chip, Container, Typography } from '@mui/material'
-import React from 'react'
+import React, { useContext } from 'react'
 import googleNews from '../Imagenes/googleNews.png'
 import Proyecto3Tabs from './proyecto3Tabs'
 import extraccionDeDatos from '../Imagenes/googleNewsExtraccionDatos.png'
 import colocacionFecha from '../Imagenes/googleNewsColocacionFecha.png'
 import procesoIterativo from '../Imagenes/googleNewsIteracion.png'
+import { LanguageContext, SetLanguageContext } from '../App'
 
-const Proyecto3 = () => {
+const Proyecto3 = (props) => {
+    const lang = useContext(LanguageContext)
+    const setLang = useContext(SetLanguageContext)
+    props.lang == "es" ? setLang("es") : console.log("")
   return (
     <>
       <Typography variant='h2' component="h1" p={2}>Web scraping, datos de google news

@@ -1,9 +1,11 @@
 import { Typography } from '@mui/material'
 import React, { useContext } from 'react'
-import { LanguageContext } from '../App'
+import { LanguageContext, SetLanguageContext } from '../App'
 
-const Home = () => {
+const Home = (props) => {
   const lang = useContext(LanguageContext)
+  const setLang = useContext(SetLanguageContext)
+  props.lang == "es" ? setLang("es") : console.log("")
   return (
     <>
       <Typography variant='h2' component="h1" p={2}>Portafolio Joaquín Quiroz</Typography>

@@ -16,35 +16,63 @@ import { createContext, useState } from 'react';
 const router = createBrowserRouter([
   {
     path:"/",
-    element:<Home>hola</Home>
+    element:<Home lang="en"></Home>
   },
   {
-    path:"/contact",
-    element:<CV></CV>
+    path:"/es",
+    element:<Home lang="es"></Home>
   },
+  // {
+  //   path:"/contact",
+  //   element:<CV></CV>
+  // },
   {
     path:"/proyect1",
-    element:<Proyecto1>1</Proyecto1>
+    element:<Proyecto1 lang="en"></Proyecto1>
+  },
+  {
+    path:"/es/proyect1",
+    element:<Proyecto1 lang="es"></Proyecto1>
   },
   {
     path:"/proyect2",
-    element:<Proyecto2>2</Proyecto2>
+    element:<Proyecto2 lang="en"></Proyecto2>
+  },
+  {
+    path:"/es/proyect2",
+    element:<Proyecto2 lang="es"></Proyecto2>
   },
   {
     path:"/proyect3",
-    element:<Proyecto3>3</Proyecto3>
+    element:<Proyecto3 lang="en"></Proyecto3>
+  },
+  {
+    path:"/es/proyect3",
+    element:<Proyecto3 lang="es"></Proyecto3>
   },
   {
     path:"/proyect4",
-    element:<Proyecto4>4</Proyecto4>
+    element:<Proyecto4 lang="en"></Proyecto4>
+  },
+  {
+    path:"/es/proyect4",
+    element:<Proyecto4 lang="es"></Proyecto4>
   },
   {
     path:"/proyect5",
-    element:<Proyecto5>5</Proyecto5>
+    element:<Proyecto5 lang="en"></Proyecto5>
+  },
+  {
+    path:"/es/proyect5",
+    element:<Proyecto5 lang="es"></Proyecto5>
   },
   {
     path:"/proyect6",
-    element:<Proyecto6>6</Proyecto6>
+    element:<Proyecto6 lang="en"></Proyecto6>
+  },
+  {
+    path:"/es/proyect6",
+    element:<Proyecto6 lang="es"></Proyecto6>
   },
 ])
 

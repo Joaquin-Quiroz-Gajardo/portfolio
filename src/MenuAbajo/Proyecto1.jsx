@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext } from 'react'
 import Proyecto1Slider from './Proyecto1Slider'
 import Proyecto1Plot from './Proyecto1Plot'
 import { Box, Chip, Container, Typography } from '@mui/material'
@@ -10,9 +10,13 @@ import baseDeDatos from "../Imagenes/mysql-squeme.png"
 import activeLearning from "../Imagenes/active learning process.png"
 import Proyecto1ActiveLearning from './Proyecto1ActiveLearning';
 import videoAppReact from '../Imagenes/aplicacionReactActiveLearning.gif'
+import { LanguageContext, SetLanguageContext } from '../App';
 
 
-const Proyecto1 = () => {
+const Proyecto1 = (props) => {
+    const lang = useContext(LanguageContext)
+    const setLang = useContext(SetLanguageContext)
+    props.lang == "es" ? setLang("es") : console.log("")
   return (
     <>
       <Typography variant='h2' component="h1" p={2}>Clasificación de texto asistida</Typography>
