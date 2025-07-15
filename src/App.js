@@ -1,7 +1,7 @@
 import Sidebar from './components/Sidebar';
 import { ThemeProvider } from '@emotion/react';
 import theme from './Utils/Pallette';
-import { BrowserRouter, createBrowserRouter, RouterProvider } from 'react-router';
+import { BrowserRouter, createBrowserRouter, RouterProvider, useNavigate } from 'react-router';
 import Home from './MenuArriba/Home';
 import CV from './MenuArriba/CV';
 import Proyecto1 from './MenuAbajo/Proyecto1';
@@ -11,6 +11,7 @@ import Proyecto4 from './MenuAbajo/Proyecto4';
 import Proyecto5 from './MenuAbajo/Proyecto5';
 import { Box, Grid, Toolbar } from '@mui/material';
 import Proyecto6 from './MenuAbajo/Proyecto6';
+import { createContext, useState } from 'react';
 
 const router = createBrowserRouter([
   {
@@ -47,15 +48,22 @@ const router = createBrowserRouter([
   },
 ])
 
+export const LanguageContext = createContext()
+export const SetLanguageContext = createContext()
 function App() {
+  const [lang, setLang] = useState("en");
   return (
+    <SetLanguageContext.Provider value={setLang}>
+    <LanguageContext.Provider value={lang}>
       <ThemeProvider theme={theme}>
-        <div className="App">
+        <div className="App">    
           <Sidebar></Sidebar>
           <RouterProvider router={router}></RouterProvider>
           <Box mb={15}></Box>
         </div>
       </ThemeProvider>
+    </LanguageContext.Provider>
+    </SetLanguageContext.Provider>
   );
 }
 

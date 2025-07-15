@@ -19,18 +19,23 @@ import ScreenSearchDesktopIcon from '@mui/icons-material/ScreenSearchDesktop';
 import NewspaperIcon from '@mui/icons-material/Newspaper';
 import BatteryFullIcon from '@mui/icons-material/BatteryFull';
 import VisibilityIcon from '@mui/icons-material/Visibility';
-import { Link, useNavigate } from 'react-router';
+// import { Link, useNavigate, useNavigation, useNavigationType } from 'react-router';
 import LocalTaxiIcon from '@mui/icons-material/LocalTaxi';
 import XIcon from '@mui/icons-material/X';
 import '@fontsource/roboto/300.css';
 import '@fontsource/roboto/400.css';
 import '@fontsource/roboto/500.css';
 import '@fontsource/roboto/700.css';
+import { LanguageContext, SetLanguageContext } from '../App';
+import spain from '../Imagenes/spain-flag-square-xs.png'
+import uk from '../Imagenes/united-kingdom-flag-button-square-xs.png'
 
 const drawerWidth = 240;
 
 export default function Sidebar() {
   // const navigate = useNavigate();
+  const setLang = React.useContext(SetLanguageContext)
+  const lang = React.useContext(LanguageContext)
   const datosIndiceSuperior = [
     {
       name: "Inicio",
@@ -82,10 +87,10 @@ export default function Sidebar() {
           </Typography>
           {/* <Button color='eee'>
             Obscuro
-          </Button>
-          <Button color='eee'>
-            idioma
           </Button> */}
+          <Button color='eee' onClick={lang == "en"?()=>setLang("es"):()=>setLang("en")}>
+            <div style={{width:"16px", height:"16px"}}><img style={{width:"100%", height:"auto"}} src={lang == "en"?spain:uk}></img></div>
+          </Button>
         </Toolbar>
       </AppBar>
       <Drawer
@@ -103,6 +108,7 @@ export default function Sidebar() {
               // <Link to={i.path}>
                 <ListItem key={i.name} disablePadding>
                   <ListItemButton onClick={() => window.location.assign(i.path)}>
+                  {/* <ListItemButton onClick={() => navigate(i.path)}> */}
                     <ListItemIcon>
                       <i.icono></i.icono>
                     </ListItemIcon>
