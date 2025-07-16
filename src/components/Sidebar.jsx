@@ -38,7 +38,7 @@ export default function Sidebar() {
   const lang = React.useContext(LanguageContext)
   const datosIndiceSuperior = [
     {
-      name: "Inicio",
+      name: lang == "es"?"Inicio":"Home page",
       icono: HomeIcon,
       path: lang == "en"?"/":"/es",
     },
@@ -51,27 +51,27 @@ export default function Sidebar() {
       path: lang == "en"?"/proyect1":"/es/proyect1",
     },
     {
-      name: "Clasificador datos academicos y Web scraping",
+      name: lang == "es"?"Clasificador datos academicos y Web scraping":"Academic data classifier and web scraping",
       icono: ScreenSearchDesktopIcon,
       path: lang == "en"?"/proyect2":"/es/proyect2",
     },
     {
-      name: "Web scraping Google News",
+      name: lang == "es"?"Web scraping Google News":"Web scraping Google News",
       icono: NewspaperIcon,
       path: lang == "en"?"/proyect3":"/es/proyect3",
     },
     {
-      name: "Análisis de datos, propinas en Nueva York",
+      name: lang == "es"?"Análisis de datos, propinas en Nueva York":"Data analysis, tips in New York",
       icono: LocalTaxiIcon,
       path: lang == "en"?"/proyect4":"/es/proyect4",
     },
     {
-      name: "Image recognition apertura de ojo",
+      name: lang == "es"?"Image recognition apertura de ojo":"Image recognition eye opening",
       icono: VisibilityIcon,
       path: lang == "en"?"/proyect5":"/es/proyect5",
     },
     {
-      name: "Named entity recognition con datos de X",
+      name: lang == "es"?"Named entity recognition con datos de X":"Named entity recognition with X data",
       icono: XIcon,
       path: lang == "en"?"/proyect6":"/es/proyect6",
     },

@@ -1,7 +1,9 @@
 import { Grid, Paper, ToggleButton, ToggleButtonGroup, Typography } from '@mui/material';
-import React from 'react'
+import React, { useContext } from 'react'
+import { LanguageContext } from '../App';
 
 const Proyecto6Limpieza = () => {
+  const lang = useContext(LanguageContext)
   const [view, setView] = React.useState('TextoOriginal');
   const handleChange = (event, nextView) => {
     setView(nextView);
@@ -17,19 +19,19 @@ const Proyecto6Limpieza = () => {
         color="primary"
       >
           <ToggleButton value="TextoOriginal" aria-label="list">
-            Texto original
+            {lang == "es"?"Texto original":"Original text"}
           </ToggleButton>
           <ToggleButton value="ASCII" aria-label="module">
-            Texto en formato ASCII
+            {lang == "es"?"Texto en formato ASCII":"Text in ASCII format"}
           </ToggleButton>
           <ToggleButton value="stopWords" aria-label="quilt">
-            Texto con los stop words removidos 
+            {lang == "es"?"Texto con los stop words removidos":"Text with stop words removed"} 
           </ToggleButton>
           <ToggleButton value="ASCIIYStopWords" aria-label="quilt">
-            Texto en formato ASCII y <br></br>con los stop words removidos
+            {lang == "es"?"Texto en formato ASCII y":"Text in ASCII format and"} <br></br>{lang == "es"?"con los stop words removidos":"with stop words removed"}
           </ToggleButton>
           <ToggleButton value="final" aria-label="quilt">
-            Versión final, reemplazando <br></br>aquellas palabras que <br></br>generan ruido al modelo
+            {lang == "es"?"Versión final, reemplazando":"Final version, replacing"} <br></br>{lang == "es"?"aquellas palabras que":"those words that"} <br></br>{lang == "es"?"generan ruido al modelo":"generate noise to the model"}
 
           </ToggleButton>
         </ToggleButtonGroup>

@@ -1,14 +1,16 @@
 import { Box, Button, Collapse, Grid, IconButton, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, Typography } from '@mui/material'
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Link } from 'react-router';
 import Paper from '@mui/material/Paper';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
 import KeyboardArrowUpIcon from '@mui/icons-material/KeyboardArrowUp';
 import { LineChart } from '@mui/x-charts/LineChart';
+import { LanguageContext } from '../App';
 
 
 const Proyecto1Plot = () => {
 
+const lang = useContext(LanguageContext)
 const originalData = {
     "Seleccionado":{
         "modelo": "IMDB",
@@ -289,7 +291,7 @@ function Row(props) {
               <Button 
               onClick={() => setters.setCambiarGrafico(row.modelName)}
               >
-                Mostrar datos
+                {lang == "es"?"Mostrar datos":"Show data"}
               </Button>
               <Typography variant="h6" gutterBottom component="div">
                 Query Strategies
@@ -297,7 +299,7 @@ function Row(props) {
               <Table size="small" aria-label="purchases">
                 <TableHead>
                   <TableRow>
-                    <TableCell>Estrategia</TableCell>
+                    <TableCell>{lang == "es"?"Estrategia":"Strategy"}</TableCell>
                     <TableCell>F1 Score</TableCell>
                     <TableCell align="right">Accuracy</TableCell>
                   </TableRow>
@@ -335,19 +337,19 @@ function Row(props) {
     <Grid container spacing={2} p={2}>
       <Grid size={6}>
         <Button onClick={() => setters.setMostrarGrafico()}>
-                Mostrar {getters.getScore() == "F1 score" ? "Accuracy" : "F1 score"}
+                {lang == "es"?"Mostrar":"Show"} {getters.getScore() == "F1 score" ? "Accuracy" : "F1 score"}
               </Button>
         <LineChart
         grid={{ vertical: true, horizontal: true }}
         
         yAxis= {[
       {
-        label: 'Performance del modelo',
+        label: lang == "es"?'Performance del modelo':'Model performance',
       }]}
         xAxis={[
           {
               data: [1, 2, 3, 4, 5, 6],
-              label: 'Número de iteraciones', 
+              label: lang == "es"?'Número de iteraciones':'Number of iterations', 
           },
       ]}
       series = {getters.getTableInformation(getters.getTablaSeleccionada()).map(x => {
@@ -382,9 +384,9 @@ function Row(props) {
             <TableHead>
               <TableRow>
                 <TableCell />
-                <TableCell>Nombre Base de datos</TableCell>
-                <TableCell align="right">Casos</TableCell>
-                <TableCell align="right">Clasificados</TableCell>
+                <TableCell>{lang == "es"?"Nombre Base de datos":"Name of the Database"}</TableCell>
+                <TableCell align="right">{lang == "es"?"Casos":"Cases"}</TableCell>
+                <TableCell align="right">{lang == "es"?"Clasificados":"Clasified"}</TableCell>
               </TableRow>
             </TableHead>
             <TableBody>
